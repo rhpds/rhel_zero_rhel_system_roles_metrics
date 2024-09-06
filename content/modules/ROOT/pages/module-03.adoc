@@ -1,7 +1,9 @@
-In the previous challenge, we installed Grafana on `+rhel+` and PCP on
-`+rhel2+` and `+rhel3+`.
+== Log into Grafana
 
-Click on the `+RHEL Grafana Console+` tab.
+In the previous challenge, we installed Grafana on `rhel` and PCP on
+`rhel2` and `rhel3`.
+
+Click on the `RHEL Grafana Console` tab.
 
 .Grafana Tab
 image::grafanatab.png[Grafana Tab]
@@ -25,23 +27,25 @@ admin
 .Grafana Login Menu
 image::grafanaloginmenu.png[Grafana Login Menu]
 
+== Grafana first login
+
 Upon successful login, Grafana will ask you to change the password. Skip
-this for now by clicking on `+Skip+`.
+this for now by clicking on `Skip`.
 
 .Skip password
 image::skippassword.png[Skip password]
 
-Click on `+Data Sources+`.
+Click on `Data Sources`.
 
 .Data Sources
 image::datasources.png[Data Sources]
 
-Click on `+PCP Redis+`.
+Click on `PCP Redis`.
 
 .pcp redis
 image::pcpredis.png[pcp redis]
 
-Click on `+Save & Test+`.
+Click on `Save & Test`.
 
 .save and test
 image::savetest.png[save and test]
@@ -51,12 +55,12 @@ Here’s what a successful result should look like.
 .success
 image::savetestsuccess.png[success]
 
-Click on the `+Dashboards+` tab.
+Click on the `Dashboards` tab.
 
 .dashboards tab
 image::dashboardstab.png[dashboards tab]
 
-Click on `+Import+` next to the `+PCP Redis: Host Overview+` title bar.
+Click on `Import` next to the `PCP Redis: Host Overview` title bar.
 
 .pcpredishostoverview
 image::pcpredishostoverview.png[pcpredishostoverview]
@@ -64,13 +68,13 @@ image::pcpredishostoverview.png[pcpredishostoverview]
 .success
 image::pcpredishostoverviewsuccess.png[success]
 
-Click on `+PCP Redis: Host Overview+`.
+Click on `PCP Redis: Host Overview`.
 
 .button
 image::pcpredishostoverviewclick.png[button]
 
-A dashboard showing the performance metrics for the `+rhel+` host will
-be displayed.
+A dashboard showing the performance metrics for the `rhel` host will be
+displayed.
 
 .result
 image::dashboard.png[result]
@@ -78,8 +82,8 @@ image::dashboard.png[result]
 You can see that only a small amount of data has been collected since
 the graph lines are short.
 
-To view the performance metrics for the `+rhel2+` and `+rhel3+` host,
-click the `+host+` dropdown bar.
+To view the performance metrics for the `rhel2` and `rhel3` host, click
+the `host` dropdown bar.
 
 .dropdown
 image::dropdown.png[dropdown]
