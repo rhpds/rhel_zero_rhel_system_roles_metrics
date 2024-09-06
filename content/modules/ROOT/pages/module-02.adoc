@@ -1,7 +1,9 @@
+== Configure the playbook
+
 Let’s create a directory to store our playbook as well as a
 sub-directory to store playbook variables.
 
-[source,bash]
+[source,bash,run]
 ----
 mkdir -p metrics
 ----
@@ -13,12 +15,12 @@ These include things like PCP retention settings, and the ports that we
 will open to enable PCP and Grafana.
 
 ____
-_NOTE:_ A `+README+` document for RHEL System Roles is available in the
-`+/usr/share/doc/rhel-system-roles/metrics+` directory, including
-example playbooks.
+[!NOTE] A `README` document for RHEL System Roles is available in the
+`/usr/share/doc/rhel-system-roles/metrics` directory, including example
+playbooks.
 ____
 
-[source,bash]
+[source,bash,run]
 ----
 tee -a ~/metrics/inventory.yml << EOF
 all:
@@ -47,23 +49,25 @@ EOF
 ----
 
 We’ll configure PCP to retain 7 days worth of performance data for the
-`+servers+` specified in the inventory.
+`servers` specified in the inventory.
 
 .servers retention
 image::serversretention.png[servers retention]
 
-The following variables designate the `+rhel+` host to run the
-`+metrics_graph_service+` and `+metrics_query_service+` which are the
+The following variables designate the `rhel` host to run the
+`metrics_graph_service` and `metrics_query_service` which are the
 Grafana and Redis software packages respectively.
 
 .metrics monitor
 image::metricsmonitor.png[metrics monitor]
 
-Create the main playbook file. Notice that we are using both the
-`+metrics+` and `+firewall+` system roles. Earlier, we specified ports
-to open for the `+pmcd+` and `+grafana+` services in the inventory.
+== Create the main playbook
 
-[source,bash]
+Create the main playbook file. Notice that we are using both the
+`metrics` and `firewall` system roles. Earlier, we specified ports to
+open for the `pmcd` and `grafana` services in the inventory.
+
+[source,bash,run]
 ----
 tee -a ~/metrics/metrics.yml << EOF
 - name: Use metrics system role to configure PCP metrics recording
@@ -80,9 +84,11 @@ tee -a ~/metrics/metrics.yml << EOF
 EOF
 ----
 
+== Run the playbook
+
 Now run the playbook.
 
-[source,bash]
+[source,bash,run]
 ----
 cd metrics
 ansible-playbook metrics.yml -b -i inventory.yml

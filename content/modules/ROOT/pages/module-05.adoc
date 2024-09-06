@@ -1,15 +1,15 @@
-So far we have configured 2 RHEL hosts (`+rhel2+`, `+rhel3+`) to be
+So far we have configured 2 RHEL hosts (`rhel2`, `rhel3`) to be
 monitored and have their performance metrics collected by host running
-Grafana and Redis (`+rhel+`). We’ll now edit the play book to configure
-and add another host `+rhel4+`. This exercise is useful as you add more
+Grafana and Redis (`rhel`). We’ll now edit the play book to configure
+and add another host `rhel4`. This exercise is useful as you add more
 and more hosts to your datacenter.
 
-The following configuration file will install PCP on the host `+rhel4+`.
-As well, it will tell the `+rhel+` Grafana host to monitor `+rhel4+`, in
-addition to the other hosts. Copy and paste this to the cli and press
-enter.
+The following configuration file will install PCP on the host `rhel4`.
+As well, it will tell the `rhel` Grafana host to monitor `rhel4`, in
+addition to the other hosts. Run this command in the link:tab-0[button
+label=``rhel''] terminal.
 
-[source,bash]
+[source,bash,run]
 ----
 tee ~/metrics/inventory.yml << EOF
 all:
@@ -38,10 +38,10 @@ all:
 EOF
 ----
 
-You may notice the only change made has been to add `+rhel4+` to this
+You may notice the only change made has been to add `rhel4` to this
 section:
 
-[source,yaml]
+[source,yaml,nocopy]
 ----
 all:
   children:
@@ -62,7 +62,7 @@ should obtain the same result on each host.
 Run the playbook with the following command to execute the modified
 playbook.
 
-[source,bash]
+[source,bash,run]
 ----
 ansible-playbook ~/metrics/metrics.yml -b -i ~/metrics/inventory.yml
 ----
@@ -71,7 +71,7 @@ Now go back to the Grafana dashboard.
 
 Refresh the dashboard page on your browser.
 
-You should be able to see `+rhel4+` has been added and metrics are being
+You should be able to see `rhel4` has been added and metrics are being
 collected.
 
 .rhel4
